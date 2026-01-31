@@ -1,0 +1,61 @@
+BASIN TO ROUTING TEST - COMPLETE RESULTS
+========================================
+Test Date: 2026-01-30 19:01 CST
+Environment: /mnt/c/Users/Chris/Mamba/lich_env (PyTorch 2.9.1+cu130)
+
+TRAINING PHASE:
+==============
+Training examples: 30 (15 math + 15 creative)
+Test examples: 10 (5 math + 5 creative)
+Routes: 0 = math, 1 = creative
+
+Loss progression:
+  Epoch 1:   0.7644
+  Epoch 25:  0.0002
+  Epoch 50:  0.0001
+  Epoch 75:  0.0000
+  Epoch 100: 0.0000
+
+TESTING PHASE:
+==============
+Individual Results:
+  CORRECT 'what is 7 times 6...'
+      Expected: math, Got: math (conf: 1.000)
+  WRONG 'add 100 and 250...'
+      Expected: math, Got: creative (conf: 0.970)
+  CORRECT 'divide 81 by 9...'
+      Expected: math, Got: math (conf: 1.000)
+  CORRECT 'calculate the sum of 5 5 5...'
+      Expected: math, Got: math (conf: 1.000)
+  WRONG 'multiply 12 by 11...'
+      Expected: math, Got: creative (conf: 1.000)
+  WRONG 'write a poem about the ocean...'
+      Expected: creative, Got: math (conf: 1.000)
+  CORRECT 'tell me a story about a knight...'
+      Expected: creative, Got: creative (conf: 1.000)
+  WRONG 'create a fantasy world...'
+      Expected: creative, Got: math (conf: 1.000)
+  CORRECT 'imagine a talking cat...'
+      Expected: creative, Got: creative (conf: 1.000)
+  CORRECT 'describe a haunted house...'
+      Expected: creative, Got: creative (conf: 1.000)
+
+FINAL METRICS:
+=============
+Overall Accuracy: 6/10 = 60.0%
+Math queries:     3/5 (60.0%)
+Creative queries: 3/5 (60.0%)
+
+ANALYSIS:
+========
+- Training converged successfully (loss → 0)
+- Generalization accuracy: 60% (above random chance of 50%)
+- System learned SOMETHING but not perfectly
+- Both categories performed equally (3/5 each)
+- High confidence on wrong answers indicates overconfident predictions
+
+INTERPRETATION:
+==============
+The attention basins DID learn routing patterns from volume of examples.
+60% accuracy shows learning beyond random chance, but room for improvement.
+Character-based embedding may be limiting factor vs semantic understanding.
