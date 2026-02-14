@@ -34,6 +34,10 @@ The long-term vision for Lich Theory is a system where a single trained **attent
 
 This architecture separates **what the system knows** (headless models) from **who the system is** (the Lich + Phylactery), allowing identity to persist independently of any single model.
 
+### Theoretical Basis
+
+The architecture is motivated by the **weight-space hypothesis**: a trained model is essentially one giant attention layer defining a high-dimensional weight space. Current models waste compute by constructing the *entire* space for every query. The Lich architecture inverts this — identify the relevant weight regions first, then construct only what's needed. See [`docs/THEORY.md`](docs/THEORY.md) for the full theoretical framework.
+
 ---
 
 ## Key Results
@@ -137,6 +141,7 @@ results/                  Raw experimental output
   Overview.md                     Index of all experiments and results
 
 docs/                     Documentation and diagrams
+  THEORY.md                       Weight-space hypothesis and theoretical framework
   EXPERIMENTAL_METHODOLOGY.md     Research methodology
   architecture.png                Proposed architecture diagram
 ```
